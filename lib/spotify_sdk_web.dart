@@ -318,7 +318,6 @@ class SpotifySdkPlugin {
 
     // emit connected event
     connectionStatusEventController.add(jsonEncode(ConnectionStatus(
-      true,
       'Spotify SDK connected',
       null,
       null,
@@ -338,7 +337,7 @@ class SpotifySdkPlugin {
 
     // emit not connected event
     connectionStatusEventController.add(jsonEncode(ConnectionStatus(
-            false, 'Spotify SDK disconnected', errorCode, errorDetails,
+            'Spotify SDK disconnected', errorCode, errorDetails,
             connected: false)
         .toJson()));
   }
