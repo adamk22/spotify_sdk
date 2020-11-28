@@ -20,6 +20,7 @@ class ConnectionStatus {
     final message = json['b'];
     final errorCode = json['c'] ?? null;
     final errorDetails = json['d'] ?? null;
+    return ConnectionStatus(connected, message, errorCode, errorDetails);
   }
 
   Map<String, dynamic> toJson(ConnectionStatus instance) {
