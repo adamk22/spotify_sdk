@@ -8,13 +8,13 @@ class ConnectionStatus {
   ConnectionStatus(
       this.connected, this.message, this.errorCode, this.errorDetails);
 
-  @JsonKey(name: 'a')
+  @JsonKey(name: 'connected', fromJson: _connectedFromJson)
   final bool connected;
-  @JsonKey(name: 'b')
+  @JsonKey(name: 'message')
   final String message;
-  @JsonKey(name: 'c')
+  @JsonKey(name: 'errorCode')
   final String errorCode;
-  @JsonKey(name: 'd')
+  @JsonKey(name: 'errorDetails')
   final String errorDetails;
 
   @JsonKey(ignore: true)
@@ -26,4 +26,9 @@ class ConnectionStatus {
       _$ConnectionStatusFromJson(json);
 
   Map<String, dynamic> toJson() => _$ConnectionStatusToJson(this);
+
+  bool _connectedFromJson(String response) {
+    var decoded = json.decode(response);
+    return decoded.a;
+  }
 }
