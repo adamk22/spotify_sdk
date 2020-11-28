@@ -316,8 +316,11 @@ class SpotifySdkPlugin {
   void _onSpotifyConnected(String deviceId) {
     _currentPlayer.deviceID = deviceId;
 
+    print('Emit from web!!!! $_currentPlayer');
+
     // emit connected event
     connectionStatusEventController.add(jsonEncode(ConnectionStatus(
+      true,
       'Spotify SDK connected',
       null,
       null,
@@ -337,7 +340,7 @@ class SpotifySdkPlugin {
 
     // emit not connected event
     connectionStatusEventController.add(jsonEncode(ConnectionStatus(
-            'Spotify SDK disconnected', errorCode, errorDetails,
+            false, 'Spotify SDK disconnected', errorCode, errorDetails,
             connected: false)
         .toJson()));
   }

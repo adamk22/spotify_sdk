@@ -3,9 +3,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'connection_status.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ConnectionStatus {
   ConnectionStatus(
+    this.connected,
     this.message,
     this.errorCode,
     this.errorDetails, {
