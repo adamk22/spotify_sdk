@@ -21,7 +21,7 @@ class ConnectionStatus {
     final errorDetails = json['d'] ?? null;
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson(ConnectionStatus instance) {
     return <String, dynamic>{
       'a': instance.connected,
       'b': instance.message,
