@@ -8,13 +8,13 @@ class ConnectionStatus {
   ConnectionStatus(
       this.connected, this.message, this.errorCode, this.errorDetails);
 
-  @JsonKey(name: 'connected')
+  @JsonKey(name: 'a')
   final bool connected;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'b')
   final String message;
-  @JsonKey(name: 'errorCode')
+  @JsonKey(name: 'c')
   final String errorCode;
-  @JsonKey(name: 'errorDetails')
+  @JsonKey(name: 'd')
   final String errorDetails;
 
   @JsonKey(ignore: true)
