@@ -180,7 +180,7 @@ class SpotifySdkPlugin(private val registrar: Registrar) : MethodCallHandler, Pl
 
                             initiallyConnected = true
                             // emit connection established event
-                            connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent({connected: true, message: "Successfully connected to Spotify.", errorCode: null, errorMessage: null}))
+                            connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent(true, "Successfully connected to Spotify.", null, null))
                             // method success
                             result.success(true)
                             replySubmitted = true
@@ -239,7 +239,7 @@ class SpotifySdkPlugin(private val registrar: Registrar) : MethodCallHandler, Pl
                             // notify plugin
                             if (initiallyConnected) {
                                 // emit connection error event
-                                connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent({connected: connected, message: errorMessage, errorCode: errorCode, errorMessage: errorDetails}))
+                                connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent(connected, errorMessage, errorCode, errorDetails))
                             } else {
                                 // throw exception as the connect method
                                 result.error(errorCode, errorMessage, errorDetails)
@@ -274,7 +274,7 @@ class SpotifySdkPlugin(private val registrar: Registrar) : MethodCallHandler, Pl
             SpotifyAppRemote.disconnect(spotifyAppRemote)
 
             // emit connection terminated event
-            connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent({connected: false, message: "Successfully disconnected from Spotify.", errorCode: null, errorMessage: null}))
+            connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent(false, "Successfully disconnected from Spotify.", null, null))
             // method success
             result.success(true)
         } else if (!spotifyAppRemote!!.isConnected) {

@@ -298,11 +298,18 @@ class SpotifySdk {
       print('subscribeConnectionStatus 1 $connectionStatusSubscription');
       return connectionStatusSubscription.asyncMap((connectionStatusJson) {
         print('connectionStatusSubscription 1 $connectionStatusJson');
+        ConnectionStatus connectionStatus = ConnectionStatus(
+            connectionStatusJson.a,
+            connectionStatusJson.b,
+            connectionStatusJson.c,
+            connectionStatusJson.d);
         print(
             'connectionStatusSubscription 1 ${json.encode(connectionStatusJson)}');
         var connectionStatusMap =
             jsonDecode(connectionStatusJson.toString()) as Map<String, dynamic>;
         print('Plugin Spotify -> $connectionStatusMap');
+        print(
+            'Plugin Spotify connectionStatus-> ${json.encode(connectionStatus)}');
         return ConnectionStatus.fromJson(connectionStatusMap);
       });
     } on Exception catch (e) {
