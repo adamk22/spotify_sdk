@@ -27,4 +27,5 @@ class ConnectionStatus {
       'a': instance.connected,
       'b': instance.message,
       'c': instance.errorCode,
+      'd': instance.errorDetails,
 }
