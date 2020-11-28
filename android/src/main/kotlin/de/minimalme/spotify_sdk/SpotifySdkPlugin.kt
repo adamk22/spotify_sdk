@@ -178,8 +178,6 @@ class SpotifySdkPlugin(private val registrar: Registrar) : MethodCallHandler, Pl
                             capabilitiesChannel.setStreamHandler(CapabilitiesChannel(spotifyAppRemote!!.userApi))
                             userStatusChannel.setStreamHandler(UserStatusChannel(spotifyAppRemote!!.userApi))
 
-                            println('spotifyAppRemote $spotifyAppRemote')
-
                             initiallyConnected = true
                             // emit connection established event
                             connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent(true, "Successfully connected to Spotify.", null, null))
@@ -213,7 +211,7 @@ class SpotifySdkPlugin(private val registrar: Registrar) : MethodCallHandler, Pl
                                 is UserNotAuthorizedException -> {
                                     errorMessage = "Indicates the user did not authorize this client of App Remote to use Spotify on the users behalf."
                                     errorCode = "UserNotAuthorizedException"
-                                }flu
+                                }
                                 is UnsupportedFeatureVersionException -> {
                                     errorMessage = "Spotify app can't support requested features. User should update Spotify app."
                                     errorCode = "UnsupportedFeatureVersionException"
