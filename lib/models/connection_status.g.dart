@@ -8,6 +8,7 @@ part of 'connection_status.dart';
 
 ConnectionStatus _$ConnectionStatusFromJson(Map<String, dynamic> json) {
   return ConnectionStatus(
+    json['connected'] as bool,
     json['message'] as String,
     json['errorCode'] as String,
     json['errorDetails'] as String,
