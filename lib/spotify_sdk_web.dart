@@ -109,11 +109,12 @@ class SpotifySdkPlugin {
     final playerStateEventChannel =
         PluginEventChannel(EventChannels.playerState);
     final playerStateEventController = StreamController.broadcast();
-    playerStateEventChannel.setController(playerStateEventController)
+    playerStateEventChannel.setController(playerStateEventController);
     final playerCapabilitiesEventChannel =
         PluginEventChannel(EventChannels.capabilities);
     final playerCapabilitiesEventController = StreamController.broadcast();
-    playerCapabilitiesEventChannel.setController(playerCapabilitiesEventController)
+    playerCapabilitiesEventChannel
+        .setController(playerCapabilitiesEventController);
     final userStatusEventChannel = PluginEventChannel(EventChannels.userStatus);
     final userStatusEventController = StreamController.broadcast();
     userStatusEventChannel.setController(userStatusEventController);
