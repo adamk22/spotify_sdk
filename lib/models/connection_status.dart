@@ -16,10 +16,11 @@ class ConnectionStatus {
 
   factory ConnectionStatus.fromJson(Map<String, dynamic> json) {
     print('fromJson $json');
-    final connected = json['a'];
-    final message = json['b'];
-    final errorCode = json['c'] ?? null;
-    final errorDetails = json['d'] ?? null;
+    print('fromJson 2 ${json['a']}');
+    final connected = json['a'] as bool;
+    final message = json['b'] as String;
+    final errorCode = json['c'] != null ? json['c'] as String : null;
+    final errorDetails = json['d'] != null ? json['d'] as String : null;
     return ConnectionStatus(connected, message, errorCode, errorDetails);
   }
 
