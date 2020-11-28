@@ -291,10 +291,15 @@ class SpotifySdk {
   /// Throws a [MissingPluginException] if the method is not implemented on
   /// the native platforms.
   static Stream<ConnectionStatus> subscribeConnectionStatus() {
+    print('subscribeConnectionStatus');
     try {
       var connectionStatusSubscription =
           _connectionStatusChannel.receiveBroadcastStream();
+      print('subscribeConnectionStatus 1 $connectionStatusSubscription');
       return connectionStatusSubscription.asyncMap((connectionStatusJson) {
+        print('connectionStatusSubscription 1 $connectionStatusJson');
+        print(
+            'connectionStatusSubscription 1 ${json.encode(connectionStatusJson)}');
         var connectionStatusMap =
             jsonDecode(connectionStatusJson.toString()) as Map<String, dynamic>;
         print('Plugin Spotify -> $connectionStatusMap');
