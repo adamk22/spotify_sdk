@@ -28,7 +28,7 @@ class ConnectionStatus {
   Map<String, dynamic> toJson() => _$ConnectionStatusToJson(this);
 
   bool _connectedFromJson(String response) {
-    var decoded = json.decode(response);
+    var decoded = jsonDecode(response);
     return decoded.a;
   }
 }
