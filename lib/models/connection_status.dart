@@ -6,12 +6,7 @@ part 'connection_status.g.dart';
 @JsonSerializable(explicitToJson: true)
 class ConnectionStatus {
   ConnectionStatus(
-    this.connected,
-    this.message,
-    this.errorCode,
-    this.errorDetails, {
-    @required this.connected,
-  });
+      this.connected, this.message, this.errorCode, this.errorDetails);
 
   @JsonKey(name: 'connected')
   final bool connected;
