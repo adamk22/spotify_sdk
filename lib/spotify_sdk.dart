@@ -300,7 +300,7 @@ class SpotifySdk {
         print('connectionStatusSubscription 1 $connectionStatusJson');
         print(
             'connectionStatusSubscription 2 ${json.encode(connectionStatusJson)}');
-        ConnectionStatus connectionStatus = ConnectionStatus(
+        var test = ConnectionStatus(
             connectionStatusJson.a,
             connectionStatusJson.b,
             connectionStatusJson.c,
@@ -310,8 +310,7 @@ class SpotifySdk {
         var connectionStatusMap =
             jsonDecode(connectionStatusJson.toString()) as Map<String, dynamic>;
         print('Plugin Spotify -> $connectionStatusMap');
-        print(
-            'Plugin Spotify connectionStatus-> ${json.encode(connectionStatus)}');
+        print('Plugin Spotify connectionStatus-> $test');
         return ConnectionStatus.fromJson(connectionStatusMap);
       });
     } on Exception catch (e) {
