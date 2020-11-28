@@ -178,6 +178,8 @@ class SpotifySdkPlugin(private val registrar: Registrar) : MethodCallHandler, Pl
                             capabilitiesChannel.setStreamHandler(CapabilitiesChannel(spotifyAppRemote!!.userApi))
                             userStatusChannel.setStreamHandler(UserStatusChannel(spotifyAppRemote!!.userApi))
 
+                            println('spotifyAppRemote $println');
+
                             initiallyConnected = true
                             // emit connection established event
                             connStatusEventChannel(ConnectionStatusChannel.ConnectionEvent(true, "Successfully connected to Spotify.", null, null))

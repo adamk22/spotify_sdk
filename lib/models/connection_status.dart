@@ -6,6 +6,7 @@ part 'connection_status.g.dart';
 @JsonSerializable()
 class ConnectionStatus {
   ConnectionStatus(
+    this.connected,
     this.message,
     this.errorCode,
     this.errorDetails, {
