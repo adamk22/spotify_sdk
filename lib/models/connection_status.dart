@@ -15,6 +15,7 @@ class ConnectionStatus {
   }
 
   factory ConnectionStatus.fromJson(Map<String, dynamic> json) {
+    print('fromJson $json');
     final connected = json['a'];
     final message = json['b'];
     final errorCode = json['c'] ?? null;
