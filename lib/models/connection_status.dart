@@ -1,29 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'connection_status.g.dart';
-
-@JsonSerializable()
 class ConnectionStatus {
   ConnectionStatus(
       this.connected, this.message, this.errorCode, this.errorDetails);
 
-  @JsonKey(name: 'a')
   final bool connected;
-  @JsonKey(name: 'b')
   final String message;
-  @JsonKey(name: 'c')
   final String errorCode;
-  @JsonKey(name: 'd')
   final String errorDetails;
 
-  @JsonKey(ignore: true)
   bool hasError() {
     return errorCode?.isNotEmpty == true;
   }
 
-  factory ConnectionStatus.fromJson(Map<String, dynamic> json) =>
-      _$ConnectionStatusFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ConnectionStatusToJson(this);
+  factory ConnectionStatus.fromJson(Map<String, dynamic> json) {
+    final connected = json['a'];
+    final message = json['b'];
+    final errorCode = json['c'] ?? null;
+    final errorDetails = json['d'] ?? null;
+    return ConnectionStatus(connected, message, errorCode, errorDetails);
+  }
+  
+  Map<String, dynamic> toJson(ConnectionStatus instance) {
+    return <String, dynamic>{
+      'a': instance.connected,
+      'b': instance.message,
+      'c': instance.errorCode,
 }

@@ -324,7 +324,12 @@ class SpotifySdkPlugin {
       'Spotify SDK connected',
       null,
       null,
-    ).toJson()));
+    ).toJson(ConnectionStatus(
+      true,
+      'Spotify SDK connected',
+      null,
+      null,
+    ))));
   }
 
   /// Called when the plugin disconects from the spotify sdk.
@@ -340,7 +345,8 @@ class SpotifySdkPlugin {
     // emit not connected event
     connectionStatusEventController.add(jsonEncode(ConnectionStatus(
             false, 'Spotify SDK disconnected', errorCode, errorDetails)
-        .toJson()));
+        .toJson(ConnectionStatus(
+            false, 'Spotify SDK disconnected', errorCode, errorDetails))));
   }
 
   void _unregisterPlayerEvents(Player player) {
